@@ -1,0 +1,11 @@
+[package]
+name = "desumark"
+version = "0.1.0"
+authors = ["0loli"]
+edition = "2018"
+
+[dependencies]
+serde = { version = "1.0.104", optional = true }
+
+[features]
+error-serialize = ["serde"]
