@@ -2,7 +2,7 @@ use crate::Context;
 
 /// The segment of text we insert
 pub enum Segment<E: 'static> {
-	/// Just some text with 'static lifetime
+    /// Just some text with 'static lifetime
     Static(&'static str),
     /// Owned string
     Owned(String),
@@ -12,7 +12,7 @@ pub enum Segment<E: 'static> {
 
     // Your own handler
     Computed(&'static dyn Fn(&mut Context) -> Result<String, E>),
-    
+
     /// Anything inside the tag
     Inner,
 }

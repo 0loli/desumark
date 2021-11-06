@@ -20,7 +20,7 @@ impl<'tokenizer, 'layout, E: std::fmt::Display> Processor<'layout, E> {
         let mut result = String::new();
         let mut counter = 0;
 
-        while let Some(w) = tokenizer.peek() {
+        while let Some(_w) = tokenizer.peek() {
             let mut buffer = String::new();
             if !self.limited {
                 // we are starting from clear
@@ -56,7 +56,7 @@ impl<'tokenizer, 'layout, E: std::fmt::Display> Processor<'layout, E> {
                 TagName,
                 ArgName,
                 ArgValue,
-            };
+            }
 
             // TAG HEADER
             let mut tag_name = String::new();
@@ -153,7 +153,7 @@ impl<'tokenizer, 'layout, E: std::fmt::Display> Processor<'layout, E> {
             }
 
             // INNER
-            let mut closed = false;
+            let _closed = false;
             'i: while let Some(token) = tokenizer.next() {
                 counter += 1;
                 match token {
@@ -187,7 +187,7 @@ impl<'tokenizer, 'layout, E: std::fmt::Display> Processor<'layout, E> {
                                 }
                             }
 
-                            Char(c) => {
+                            Char(_c) => {
                                 // parse inner
                                 buffer.push_str(
                                     &Processor::new(self.layout, true).process(tokenizer)?,

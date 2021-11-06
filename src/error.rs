@@ -24,7 +24,7 @@ impl<C: Display + Debug> Display for Error<C> {
     }
 }
 
-impl<C: std::fmt::Display + std::fmt::Debug> std::error::Error for Error<C> {}
+impl<C: Display + Debug> std::error::Error for Error<C> {}
 
 impl<E: Display> From<E> for Error<E> {
     fn from(e: E) -> Self {

@@ -36,7 +36,6 @@ impl<E: std::fmt::Display> Layout<E> {
                 let mut result = String::new();
 
                 for segment in &pattern.segments {
-                    let empty = String::from("");
                     match segment {
                         Segment::Static(s) => result.push_str(s),
                         Segment::Owned(s) => result.push_str(s),
@@ -50,7 +49,7 @@ impl<E: std::fmt::Display> Layout<E> {
                             },
                         ),
                         Segment::Computed(func) => result.push_str(&func(&mut context)?),
-                        Inner => result.push_str(&context.inner),
+                        Segment::Inner => result.push_str(&context.inner),
                     }
                 }
 
